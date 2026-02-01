@@ -100,6 +100,7 @@ cp -r openclaw-gcp-setup/.claude/skills/* ~/.claude/skills/
 | 문서 | 설명 |
 |------|------|
 | [맥미니급 VM 설정](docs/macmini-grade-vm-setup.md) | VM 사양 비교 및 리사이즈 |
+| [외부 스킬 통합](docs/skills-extradirs.md) | Claude Code 스킬을 OpenClaw에서 사용하기 |
 
 ## 라이선스
 
