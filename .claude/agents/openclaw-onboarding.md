@@ -139,11 +139,48 @@ VM에 SSH 접속 후 docs/openclaw-setup-guide.md 순서대로 안내:
 - docs/03-vm-create.md - VM 생성
 - docs/openclaw-setup-guide.md - OpenClaw 설치
 
-## Related Skills
+## Available Skills
 
-필요시 다음 스킬 활용:
+이 프로젝트의 모든 GCP 스킬을 활용할 수 있습니다:
 
-- `/gcp-vm-create` - VM 생성 마법사
-- `/gcp-vm-ssh` - SSH 접속 설정
-- `/gcp-vm-control` - VM 시작/중지
-- `/gcp-firewall` - 방화벽 규칙 관리
+### VM 관리
+| 스킬 | 설명 |
+|------|------|
+| `/gcp-vm-create` | VM 생성 마법사 (용도별 사양 추천) |
+| `/gcp-vm-control` | VM 시작/중지/재시작 |
+| `/gcp-vm-resize` | VM 머신 타입 변경 (스케일업/다운) |
+| `/gcp-vm-ssh` | SSH 접속 및 터널링 설정 |
+| `/gcp-vm-init` | VM 초기 설정 (보안/최적화) |
+
+### 프로젝트 관리
+| 스킬 | 설명 |
+|------|------|
+| `/gcp-project-setup` | 프로젝트 생성 → 결제 연결 → API 활성화 |
+| `/gcp-projects` | 프로젝트 목록 조회 |
+| `/gcp-project-status` | 프로젝트 리소스 상태 종합 조회 |
+| `/gcp-cleanup` | 미사용 리소스 탐지 (읽기 전용) |
+
+### 빌링 및 비용
+| 스킬 | 설명 |
+|------|------|
+| `/gcp-billing` | 프로젝트/서비스별 비용 분석 |
+| `/gcp-billing-accounts` | 결제 계정 목록 조회 |
+| `/gcp-billing-projects` | 결제 계정별 연결 프로젝트 조회 |
+| `/gcp-usage` | API 사용량 조회 |
+
+### 서버리스
+| 스킬 | 설명 |
+|------|------|
+| `/gcp-cloudrun` | Cloud Run 서비스 배포/관리 |
+| `/gcp-functions` | Cloud Functions 배포/관리 |
+
+### 인프라 관리
+| 스킬 | 설명 |
+|------|------|
+| `/gcp-storage` | Cloud Storage 버킷 관리 |
+| `/gcp-firewall` | 방화벽 규칙 관리 |
+| `/gcp-snapshot` | 디스크 스냅샷 생성/복원 |
+| `/gcp-iam` | IAM 서비스 계정 및 권한 관리 |
+| `/gcp-secret` | Secret Manager 조회/관리 |
+| `/gcp-logs` | Cloud Logging 로그 조회/필터링 |
+| `/gcp-alerts` | 알림 정책 설정 (비용/에러/성능) |
