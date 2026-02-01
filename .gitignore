@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+
+# Secrets
+*.json
+!package.json
+credentials/
+secrets/
+
+# Skill packages (regeneratable)
+*.skill
+
+# IDE
+.idea/
+.vscode/
+
+# Temp
+*.log
+*.tmp
+
+# Slack Bot
+slack-bot/.env
+slack-bot/venv/
+*.pickle
+__pycache__/
+*.pyc
