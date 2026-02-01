@@ -2,6 +2,21 @@
 
 GCP 인프라 자동화를 위한 Claude Code 스킬 모음입니다.
 
+## 빠른 시작: OpenClaw on GCP
+
+GCP VM에 OpenClaw를 설치하고 싶다면 아래 가이드를 순서대로 따라하세요:
+
+| 단계 | 문서 | 설명 |
+|------|------|------|
+| 1 | [GCP 계정 생성](docs/01-gcp-account.md) | GCP 가입 + $300 무료 크레딧 활성화 |
+| 2 | [gcloud 설치](docs/02-gcloud-install.md) | Google Cloud SDK 설치 + 인증 |
+| 3 | [VM 생성](docs/03-vm-create.md) | OpenClaw용 VM 생성 + SSH 접속 |
+| 4 | [OpenClaw 설치](docs/openclaw-setup-guide.md) | OpenClaw 설치 + 텔레그램 봇 연동 |
+
+> **에이전트 사용**: Claude Code에서 `/openclaw-onboarding` 명령어로 대화형 온보딩을 시작할 수 있습니다.
+
+---
+
 ## 스킬 목록
 
 ### 빌링 및 비용 관리
@@ -73,7 +88,18 @@ cp -r openclaw-gcp-setup/.claude/skills/* ~/.claude/skills/
 
 ## 문서
 
-- [맥미니급 VM 설정 가이드](docs/macmini-grade-vm-setup.md)
+### 온보딩 가이드
+| 문서 | 설명 |
+|------|------|
+| [01. GCP 계정 생성](docs/01-gcp-account.md) | GCP 가입 및 무료 크레딧 |
+| [02. gcloud 설치](docs/02-gcloud-install.md) | CLI 도구 설치 및 인증 |
+| [03. VM 생성](docs/03-vm-create.md) | VM 생성 및 SSH 접속 |
+| [04. OpenClaw 설치](docs/openclaw-setup-guide.md) | OpenClaw + 텔레그램 설정 |
+
+### 참고 문서
+| 문서 | 설명 |
+|------|------|
+| [맥미니급 VM 설정](docs/macmini-grade-vm-setup.md) | VM 사양 비교 및 리사이즈 |
 
 ## 라이선스
 
