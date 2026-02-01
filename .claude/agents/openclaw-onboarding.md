@@ -276,6 +276,85 @@ systemctl --user status openclaw-gateway
 - 게이트웨이 상태 확인: `systemctl --user status openclaw-gateway`
 - Pairing 상태 확인: `openclaw pairing list`
 
+**성공 시 (AskUserQuestion)**:
+```
+질문: 축하합니다! 기본 설정이 완료되었습니다. 고급 설정도 진행할까요?
+옵션:
+- 예, 외부 스킬 통합 설정하기 → Phase 7로
+- 아니오, 여기서 마무리 → 완료 메시지
+```
+
+---
+
+### Phase 7: 고급 설정 - 외부 스킬 통합 (선택)
+
+docs/skills-extradirs.md 내용을 안내. Claude Code에서 만든 스킬을 OpenClaw에서도 사용하는 방법입니다.
+
+**용어 설명**:
+- **extraDirs**: OpenClaw가 외부 폴더의 스킬도 로드하도록 하는 설정
+- **Claude Code 스킬**: 로컬 프로젝트의 `.claude/skills/` 폴더에 있는 커스텀 스킬
+
+**Step 1: 외부 스킬 경로 확인**
+
+로컬에서 사용하던 Claude Code 스킬이 있다면 경로 확인:
+```bash
+# 예: Obsidian 볼트의 스킬
+ls /home/<username>/obsidian/.claude/skills/
+
+# 예: 다른 프로젝트의 스킬
+ls /home/<username>/my-project/.claude/skills/
+```
+
+**Step 2: openclaw.json에 extraDirs 추가**
+
+```bash
+nano ~/.openclaw/openclaw.json
+```
+
+`skills` 섹션에 `load.extraDirs` 추가:
+```json
+{
+  "skills": {
+    "load": {
+      "extraDirs": [
+        "/home/<username>/obsidian/.claude/skills",
+        "/home/<username>/my-project/.claude/skills"
+      ]
+    }
+  }
+}
+```
+
+저장: `Ctrl+O` → `Enter` → `Ctrl+X`
+
+**Step 3: 게이트웨이 재시작**
+
+```bash
+systemctl --user restart openclaw-gateway
+```
+
+**Step 4: 스킬 로드 확인**
+
+```bash
+openclaw skills list
+```
+
+`Source` 컬럼에 `openclaw-extra`로 표시되면 성공!
+
+**체크포인트 (AskUserQuestion)**:
+```
+질문: openclaw skills list에서 외부 스킬이 보이나요?
+옵션:
+- 예, 보임 → 완료
+- 아니오, 안 보임 → 문제 해결 안내
+- 외부 스킬 없음, 건너뛰기 → 완료
+```
+
+**문제 발생 시**:
+- 경로가 정확한지 확인 (`ls /path/to/skills/`)
+- 각 스킬 폴더에 `SKILL.md`가 있는지 확인
+- JSON 문법 오류 확인 (`cat ~/.openclaw/openclaw.json | python3 -m json.tool`)
+
 ---
 
 ## Error Handling
@@ -299,6 +378,7 @@ systemctl --user status openclaw-gateway
 | Phase 4 | VM 생성 실패 | Phase 4 처음부터 |
 | Phase 5 | Node/pnpm 설치 실패 | Phase 5 Step 1/2 |
 | Phase 6 | 봇 연동 실패 | Phase 6 Step 1 |
+| Phase 7 | 외부 스킬 로드 실패 | Phase 7 Step 1 |
 
 ---
 
@@ -308,6 +388,7 @@ systemctl --user status openclaw-gateway
 - docs/02-gcloud-install.md - gcloud 설치
 - docs/03-vm-create.md - VM 생성
 - docs/openclaw-setup-guide.md - OpenClaw 설치
+- docs/skills-extradirs.md - 외부 스킬 통합 (Phase 7)
 
 ---
 
