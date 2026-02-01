@@ -67,7 +67,7 @@ GCP VM에 OpenClaw를 설치하고 싶다면 아래 가이드를 순서대로 �
 
 ```bash
 # 레포 클론
-git clone https://github.com/your-username/openclaw-gcp-setup.git
+git clone https://github.com/kubony/openclaw-gcp-setup.git
 
 # .claude 폴더를 프로젝트에 복사
 cp -r openclaw-gcp-setup/.claude /path/to/your-project/
