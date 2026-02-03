@@ -114,7 +114,7 @@ pnpm --version
 
 ```bash
 cd ~
-git clone https://github.com/anthropics/openclaw
+git clone https://github.com/openclaw/openclaw
 cd openclaw
 ```
 

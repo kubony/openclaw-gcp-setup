@@ -197,7 +197,7 @@ pnpm --version
 **Step 3: OpenClaw 클론 및 빌드**
 ```bash
 cd ~
-git clone https://github.com/anthropics/openclaw
+git clone https://github.com/openclaw/openclaw
 cd openclaw
 pnpm install
 pnpm build
